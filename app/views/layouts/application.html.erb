@@ -30,14 +30,19 @@
                 <li class="nav-item">
                   <%= link_to 'Home', user_path(current_user.id), class: "nav-link dark" %>
 
+
+<i class="fas fa-book"></i>
+
+
+
                 </li>
 
                  <li class="nav-item">
-                  <%= link_to 'Users', user_path(current_user.id), class: "nav-link" %>
+                  <%= link_to 'Users', users_path, class: "nav-link" %>
                 </li>
 
                 <li class="nav-item">
-                  <%= link_to 'Books', user_path(current_user.id), class: "nav-link" %>
+                  <%= link_to 'Books', books_path(current_user.id), class: "nav-link" %>
                 </li>
 
                 <li class="nav-item">
