@@ -41,8 +41,8 @@
 
 
                 <li>
-                   <%= link_to books_path(current_user.id), class: "nav-link text-light" do %>
-														  <i class="fas fa-book"></i><strong> Books</strong>
+                   <%= link_to books_path, class: "nav-link text-light" do %>
+														  <i class="fas fa-book-open"></i><strong> Books</strong>
 														  <% end %>
                 </li>
 
@@ -58,29 +58,28 @@
               <% else %>
 
 
-                <li>
-                   <%= link_to root_path, class: "nav-link text-light" do %>
-														  <i class="fas fa-home"></i><strong> Home</strong>
-														  <% end %>
-                </li>
-
-              <li>
-                   <%= link_to home_about_path, class: "nav-link text-light" do %>
-														  <i class="fas fa-link"></i><strong> About</strong>
-														  <% end %>
-                </li>
 
                 <li>
-                   <%= link_to new_user_registration_path, class: "nav-link text-light" do %>
-														  <i class="fas fa-user-plus"></i><strong> sign up</strong>
-														  <% end %>
+                  <%= link_to " Home", root_path, class: "fas fa-home nav-link text-light" %>
                 </li>
 
+
                 <li>
-                   <%= link_to new_user_session_path, class: "nav-link text-light" do %>
-														  <i class="fas fa-sign-in-alt"></i><strong> login</strong>
-														  <% end %>
+                  <%= link_to " About", home_about_path, class: "fas fa-link nav-link text-light" %>
                 </li>
+
+
+                <li>
+                  <%= link_to " sign up", new_user_registration_path, class: "fas fa-user-plus nav-link text-light" %>
+                </li>
+
+             
+                 <li>
+                  <%= link_to " login", new_user_session_path, class: "fas fa-sign-in-alt nav-link text-light" %>
+                </li>
+
+
+              
 
 <% end %>
 

@@ -13,7 +13,7 @@ class BooksController < ApplicationController
     redirect_to book_path(@book.id), notice: "You have created book successfully."
     else
       @user = current_user
-      @books = @user.books.all
+      @books = Book.all
       render :index
     end
   end
@@ -31,7 +31,7 @@ class BooksController < ApplicationController
     if @user == current_user
       render :edit
     else
-      redirect_to book_path(@book.id)
+      redirect_to books_path
     end
 
   end
