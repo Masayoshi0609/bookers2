@@ -97,6 +97,18 @@
     </header>
 
     <main class="mb-auto">
+      <% if flash[:notice] %>
+      <div class="text-success">
+      <%= flash[:notice] %>
+      <% end %>
+      </div>
+
+      <% if flash[:alert] %>
+      <div class="text-danger">
+      <%= flash[:alert] %>
+      <% end %>
+      </div>
+
     <%= yield %>
     </main>
 
