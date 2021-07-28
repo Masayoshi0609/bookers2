@@ -24,7 +24,7 @@
           </button>
 
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
              <% if user_signed_in? %>
 
 
@@ -73,13 +73,13 @@
                   <%= link_to " sign up", new_user_registration_path, class: "fas fa-user-plus nav-link text-light" %>
                 </li>
 
-             
+
                  <li>
                   <%= link_to " login", new_user_session_path, class: "fas fa-sign-in-alt nav-link text-light" %>
                 </li>
 
 
-              
+
 
 <% end %>
 
