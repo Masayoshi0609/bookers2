@@ -36,6 +36,28 @@
 				   </td>
 
 				   <% if @user.id == current_user.id %>
+
+				   <td>
+				   	<% if @book_detail.favorited_by?(current_user) %>
+				   	 <%= link_to book_favorites_path(@book_detail), method: :delete do %>
+				   	  <label class="text-danger">♥<%= @book_detail.favorites.count %></label>
+				   	 <% end %>
+
+				   	<% else %>
+				   	 <%= link_to book_favorites_path(@book_detail), method: :post do %>
+				   	  <label>♡<%= @book_detail.favorites.count %></label>
+				   	 <% end %>
+
+				   	<% end %>
+				   </td>
+
+				   <td>
+
+				   コメント数:<%= @book_detail.book_comments.count %>
+
+
+				   </td>
+
 				   <td>
 				   	<%= link_to "Edit", edit_book_path(params[:id]), class: "btn btn-sm btn-success" %>
 				   </td>
@@ -44,9 +66,16 @@
 				   	<%= link_to "Destroy", book_path(@book_detail.id), method: :delete, "data-confirm" => "Are you sure?", class: "btn btn-sm btn-danger" %>
 				   </td>
 				   <% end %>
+
 				  </tr>
 				 </tbody>
 			    </table>
+			    <div class="form-group">
+			    	<%= form_with(model:[@book_detail, @book_comment], local: true) do |f| %>
+ 						<%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+ 						<%= f.submit "送信する" %>
+						<% end %>
+					</div>
 	    </div>
 	</div>
  </div>
