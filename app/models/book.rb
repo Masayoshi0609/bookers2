@@ -10,6 +10,27 @@ def favorited_by?(user)
  favorites.where(user_id: user.id).exists?
 end
 
+
+#検索機能に関する記述
+
+def self.search(search, word)
+  if search == "forward_match"
+   @book = Book.where("title LIKE?", "#{word}%")
+  elsif search == "backward_match"
+   @book = Book.where("title LIKE?", "%#{word}")
+  elsif search == "perfect_match"
+   @book = Book.where(title: "#{word}")
+  elsif search == "partial_match"
+   @book = Book.where("title LIKE?", "%#{word}%")
+  else
+   @book = Book.all
+  end
+end
+
+#ここまで
+
+
+
  validates :title, presence: true
  validates :body, presence: true,
  length: { maximum: 200}

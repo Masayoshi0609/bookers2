@@ -15,4 +15,6 @@ Rails.application.routes.draw do
  
   post "users/:id/edit" => "users#edit"
   post "users/:id" => "users#create"
+  
+  get "search" => "searches#search"
 end
