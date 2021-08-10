@@ -57,22 +57,23 @@
 				   <% end %>
 
 				  </tr>
-				  <!--ここからコメント機能の記述-->
-				<% @book_detail.book_comments.each do |book_comment| %>
-				<div id="comments_<%= @book_detail.id %>">
-					<%= render partial: "book_comments/comments", locals: {book_comment: book_comment} %>
-				</div>
+				  <!--ここからコメント一覧・削除機能の記述-->
 
-				   <!--ここまでがコメント機能の記述-->
+				<!--<div id="comments_<%= @book_detail.id %>">-->
+				<!--	<%= render "book_comments/comments", comments: @book_detail.book_comments %>-->
+				<!--</div>-->
+
+				   <!--ここまでがコメント一覧・削除機能の記述-->
 				 </tbody>
 			    </table>
-			     <div class="form-group">
-			    	<%= form_with(model:[@book_detail, @book_comment], remote: true) do |f| %>
- 						<%= f.text_area :comment, class: "form-control" %>
- 						<%= f.submit "送信" %>
- 					  <% end %>
- 					 </div>
+			    <div id="comments_<%= @book_detail.id %>">
+					<%= render "book_comments/comments", comments: @book_detail.book_comments %>
+					</div>
 
+			      <!--ここからコメント投稿の記述-->
+				   	<%= render "book_comments/form", book: @book_detail, comment: @book_comment %>
+
+				　<!--ここまでコメント投稿の記述-->
 
 					</div>
 	    </div>

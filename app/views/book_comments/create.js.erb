@@ -1,0 +1,2 @@
+$(".form-control").val('');
+$("#comments_<%= @book_detail.id %>").html("<%= j(render "book_comments/comments", comments: @comments ) %>");
